@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firstapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="content">
+		<div id="top">
+			<div class="topright">
+			 	<a href="#"><img src="assets/sitemap.png" alt="Sitemap" /></a> ^ 
+			 	<a href="#"><img src="assets/rss.png" alt="RSS" /></a>				
+			</div>
+		</div>
+		<div id="header">
+			
+			<div class="headings">
+				<h1>Welcome to my Firstapp</h1>
+				<h2>Ruby on Rails</h2>
+			</div>
+		</div>
+	
+			<div id="menu">
+			  	<ul>
+					<li><a href="#">link.one</a></li>
+					<li><a href="#">link.two</a></li>
+					<li><a href="#">link.three</a></li>
+					<li><a href="#">link.four</a></li>
+      				<li><a href="#">link.five</a></li>
+      				<li><a href="#">link.six</a></li>
+      			</ul>
+			</div>	
+			
+		
+		<div id="main">
+			<div class="right">
+				
+				
+				<div class="nav">
+				
+					
+				</div>
+			</div>
+			<div class="left">
+				
+				<% if notice %>
+  				<p class="alert alert-success"><%= notice %></p>
+				<% end %>
+				<% if alert %>
+  				<p class="alert alert-danger"><%= alert %></p>
+				<% end %>	
+			
+              <%= yield %>
+				
+				<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
+  <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "navbar-link"  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, class: "navbar-link"  %> |
+  <%= link_to "Login", new_user_session_path, class: "navbar-link"  %>
+<% end %>
+</p>
+				<div class="img_right"><img src="assets/img.jpg" alt="" /></div>
+
+			</div>
+			
+		</div>
+		
+		<div id="footer">
+			<div class="info">
+				&copy; 2006 Your Site<br />
+				Site Design - <a href="http://www.designcreek.com">DesignCreek</a>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
